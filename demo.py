@@ -7,6 +7,7 @@ No actual Dropbox connection required.
 
 import sys
 import os
+import re
 
 # Add parent directory to path to import the organizer
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -81,7 +82,6 @@ def demo_file_classification():
             continue
         
         # Check for year in filename
-        import re
         year_match = re.search(r'20\d{2}', filename)
         if year_match:
             year = year_match.group(0)
