@@ -1,0 +1,56 @@
+# Dropbox Auto-Organizer Configuration
+
+# Folder names for organizing files
+folders:
+  photos: "Photos Archive"
+  documents: "Documents & Files"
+  temp: "Temp Files"
+
+# File organization rules
+rules:
+  # Photos: Organize by year pattern (20XX)
+  photos:
+    enabled: true
+    year_pattern: "20\\d{2}"  # Matches 2000-2099
+    
+  # Documents: Specific file extensions
+  documents:
+    enabled: true
+    extensions:
+      - ".pdf"
+      - ".docx"
+      - ".doc"
+      - ".txt"
+      - ".xlsx"
+      - ".xls"
+      - ".pptx"
+      - ".ppt"
+      
+  # Temp files: Specific filename patterns
+  temp:
+    enabled: true
+    patterns:
+      - "USER_SCOPED_TEMP"
+      - "_sync"
+      - ".tmp"
+      - "~$"
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "dropbox_organizer.log"
+  max_log_size_mb: 10
+  backup_count: 5
+
+# Dry run mode (set to true to test without moving files)
+dry_run: false
+
+# Skip files and folders
+skip:
+  folders:
+    - "Photos Archive"
+    - "Documents & Files"
+    - "Temp Files"
+  files:
+    - ".dropbox"
+    - ".dropbox.cache"
